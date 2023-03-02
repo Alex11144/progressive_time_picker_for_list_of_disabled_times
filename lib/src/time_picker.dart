@@ -60,6 +60,7 @@ class TimePicker extends StatefulWidget {
   _TimePickerState createState() => _TimePickerState();
 
   TimePicker({
+    Key? key,
     required this.initTime,
     required this.endTime,
     required this.onSelectionChange,
@@ -73,7 +74,7 @@ class TimePicker extends StatefulWidget {
     this.isInitHandlerSelectable = true,
     this.isEndHandlerSelectable = true,
     this.disabledRange,
-  });
+  }) : super(key: key);
 }
 
 class _TimePickerState extends State<TimePicker> {
