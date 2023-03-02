@@ -151,17 +151,17 @@ class _TimePickerPainterState extends State<TimePickerPainter> {
         var disableTimeInitPercentage =
             valueToPercentage(_disabledStart!, clockTimeDivision);
         startPercentage = disableTimeInitPercentage;
+        _disableTimeStartAngle.add(percentageToRadians(startPercentage));
       }
       for (var _disabledEnd in widget.disableTimeEnd!) {
         var disableTimeEndPercentage =
             valueToPercentage(_disabledEnd!, clockTimeDivision);
         endPercentage = disableTimeEndPercentage;
+        _disableTimeEndAngle.add(percentageToRadians(endPercentage));
       }
 
       var disabledSweep = getSweepAngle(startPercentage, endPercentage);
 
-      _disableTimeStartAngle.add(percentageToRadians(startPercentage)) ;
-      _disableTimeEndAngle.add(percentageToRadians(endPercentage)) ;
       _disableSweepAngle.add(percentageToRadians(disabledSweep.abs()));
     }
 
