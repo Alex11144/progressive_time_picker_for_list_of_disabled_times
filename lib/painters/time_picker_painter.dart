@@ -162,9 +162,7 @@ class _TimePickerPainterState extends State<TimePickerPainter> {
 
       _disableTimeStartAngle = percentageToRadians(startPercentage);
       _disableTimeEndAngle = percentageToRadians(endPercentage);
-      _disableSweepAngle.forEach((element) {
-        element = percentageToRadians(disabledSweep.abs());
-      });
+      _disableSweepAngle.add(percentageToRadians(disabledSweep.abs()));
     }
 
     _painter = PickerPainter(
