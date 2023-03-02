@@ -80,8 +80,8 @@ class _TimePickerState extends State<TimePicker> {
   int _init = 0;
   int _end = 0;
 
-  List<int?>? _disabledInit;
-  List<int?>? _disabledEnd;
+  List<int?> _disabledInit = [];
+  List<int?> _disabledEnd = [];
 
   DateTime? disabledStartTime;
   DateTime? disabledEndTime;
@@ -115,7 +115,7 @@ class _TimePickerState extends State<TimePicker> {
         disabledStartTime = getTime(disabledRangeTime!.initTime);
         disabledEndTime = getTime(disabledRangeTime.endTime);
 
-        _disabledInit!.add(pickedTimeToDivision(
+        _disabledInit.add(pickedTimeToDivision(
           pickedTime: disabledRangeTime.initTime,
           clockTimeFormat:
               widget.decoration?.clockNumberDecoration?.clockTimeFormat ??
@@ -125,7 +125,7 @@ class _TimePickerState extends State<TimePicker> {
               ClockIncrementTimeFormat.FIVEMIN,
         ));
 
-        _disabledEnd!.add(pickedTimeToDivision(
+        _disabledEnd.add(pickedTimeToDivision(
           pickedTime: disabledRangeTime.endTime,
           clockTimeFormat:
               widget.decoration?.clockNumberDecoration?.clockTimeFormat ??
