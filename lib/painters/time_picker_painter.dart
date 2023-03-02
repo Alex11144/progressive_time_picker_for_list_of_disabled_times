@@ -67,8 +67,8 @@ class _TimePickerPainterState extends State<TimePickerPainter> {
   /// the absolute angle in radians representing the selection
   late double _sweepAngle;
 
-  double? _disableTimeStartAngle;
-  double? _disableTimeEndAngle;
+  List<double?> _disableTimeStartAngle = [];
+  List<double?> _disableTimeEndAngle = [];
   List<double?> _disableSweepAngle = [];
 
   /// in case we have a double picker and we want to move the whole selection by clicking in the picker
@@ -160,8 +160,8 @@ class _TimePickerPainterState extends State<TimePickerPainter> {
 
       var disabledSweep = getSweepAngle(startPercentage, endPercentage);
 
-      _disableTimeStartAngle = percentageToRadians(startPercentage);
-      _disableTimeEndAngle = percentageToRadians(endPercentage);
+      _disableTimeStartAngle.add(percentageToRadians(startPercentage)) ;
+      _disableTimeEndAngle.add(percentageToRadians(endPercentage)) ;
       _disableSweepAngle.add(percentageToRadians(disabledSweep.abs()));
     }
 
