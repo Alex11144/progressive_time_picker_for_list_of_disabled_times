@@ -10,8 +10,8 @@ typedef SelectionChanged<T> = void Function(T a, T b, bool? valid);
 class TimePickerPainter extends StatefulWidget {
   final int init;
   final int end;
-  final int? disableTimeStart;
-  final int? disableTimeEnd;
+  final List<int?>? disableTimeStart;
+  final List<int?>? disableTimeEnd;
   final Color? disabledRangeColor;
   final Color? errorColor;
   final int primarySectors;
@@ -144,17 +144,28 @@ class _TimePickerPainterState extends State<TimePickerPainter> {
     _startAngle = percentageToRadians(initPercent);
     _endAngle = percentageToRadians(endPercent);
     _sweepAngle = percentageToRadians(sweep.abs());
+    double? _range1 = 0;
+    double? _range2 = 0;
 
     if (widget.disableTimeStart != null && widget.disableTimeEnd != null) {
-      var disableTimeInitPercentage =
-          valueToPercentage(widget.disableTimeStart!, clockTimeDivision);
-      var disableTimeEndPercentage =
-          valueToPercentage(widget.disableTimeEnd!, clockTimeDivision);
-      var disabledSweep =
-          getSweepAngle(disableTimeInitPercentage, disableTimeEndPercentage);
+      for (var _disableStartTime in widget.disableTimeStart!) {
+        var disableTimeInitPercentage =
+            valueToPercentage(_disableStartTime!, clockTimeDivision);
+        _disableTimeStartAngle = percentageToRadians(disableTimeInitPercentage);
+        _range1 = _disableTimeStartAngle;
+      }
+      for (var _disableEndTime in widget.disableTimeEnd!) {
+        var disableTimeEndPercentage =
+            valueToPercentage(_disableEndTime!, clockTimeDivision);
+        _disableTimeEndAngle = percentageToRadians(disableTimeEndPercentage);
+        _range2 = _disableTimeEndAngle;
+      }
+      // var disableTimeEndPercentage =
+      //     valueToPercentage(widget.disableTimeEnd!, clockTimeDivision);
+      var disabledSweep = getSweepAngle(_range1!, _range2!);
 
-      _disableTimeStartAngle = percentageToRadians(disableTimeInitPercentage);
-      _disableTimeEndAngle = percentageToRadians(disableTimeEndPercentage);
+      // _disableTimeStartAngle = percentageToRadians(disableTimeInitPercentage);
+      // _disableTimeEndAngle = percentageToRadians(disableTimeEndPercentage);
       _disableSweepAngle = percentageToRadians(disabledSweep.abs());
     }
 

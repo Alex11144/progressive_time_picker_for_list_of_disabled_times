@@ -80,8 +80,8 @@ class _TimePickerState extends State<TimePicker> {
   int _init = 0;
   int _end = 0;
 
-  int? _disabledInit;
-  int? _disabledEnd;
+  List<int?>? _disabledInit;
+  List<int?>? _disabledEnd;
 
   DateTime? disabledStartTime;
   DateTime? disabledEndTime;
@@ -114,8 +114,8 @@ class _TimePickerState extends State<TimePicker> {
       for (var disabledRangeTime in widget.disabledRange!) {
         disabledStartTime = getTime(disabledRangeTime!.initTime);
         disabledEndTime = getTime(disabledRangeTime.endTime);
-
-        _disabledInit = pickedTimeToDivision(
+for(var disableInit in _disabledInit!){
+  disableInit = pickedTimeToDivision(
           pickedTime: disabledRangeTime.initTime,
           clockTimeFormat:
               widget.decoration?.clockNumberDecoration?.clockTimeFormat ??
@@ -124,7 +124,9 @@ class _TimePickerState extends State<TimePicker> {
                   ?.clockIncrementTimeFormat ??
               ClockIncrementTimeFormat.FIVEMIN,
         );
-        _disabledEnd = pickedTimeToDivision(
+}
+      for(var disableEnd in _disabledEnd! ){
+  disableEnd = pickedTimeToDivision(
           pickedTime: disabledRangeTime.endTime,
           clockTimeFormat:
               widget.decoration?.clockNumberDecoration?.clockTimeFormat ??
@@ -133,6 +135,8 @@ class _TimePickerState extends State<TimePicker> {
                   ?.clockIncrementTimeFormat ??
               ClockIncrementTimeFormat.FIVEMIN,
         );
+      }
+      
 
         error = validateRange(widget.initTime, widget.endTime);
       }
