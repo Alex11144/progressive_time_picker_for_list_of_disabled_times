@@ -11,7 +11,7 @@ class PickerPainter extends CustomPainter {
   TimePickerDecoration pickerDecorator;
   double? disableTimeStartAngle;
   double? disableTimeEndAngle;
-  double? disabledSweepAngle;
+  List<double?> disabledSweepAngle = [];
   Color? disabledRangeColor;
   Color? errorColor;
 
@@ -35,7 +35,7 @@ class PickerPainter extends CustomPainter {
     required this.pickerDecorator,
     this.disableTimeStartAngle,
     this.disableTimeEndAngle,
-    this.disabledSweepAngle,
+    required this.disabledSweepAngle,
     this.disabledRangeColor,
     this.errorColor,
   });
@@ -68,8 +68,11 @@ class PickerPainter extends CustomPainter {
         showConnector: false,
         useRoundedPickerCap: false,
       );
-      disableSweepDecorator.paint(
-          canvas, size, center, disableTimeStartAngle!, disabledSweepAngle!);
+      disabledSweepAngle.forEach((element) {
+    disableSweepDecorator.paint(
+          canvas, size, center, disableTimeStartAngle!, element!);
+      });
+  
     }
 
     /// draw start handler
