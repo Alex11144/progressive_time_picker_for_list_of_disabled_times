@@ -14,7 +14,7 @@ class TimePickerHandlerDecoration {
   /// Icon(Icons.filter_tilt_shift, size: iconSize, color: Colors.teal[700]);
   /// ```
   /// {@end-tool}
-  final Icon? icon;
+  final dynamic svg;
 
   /// handler default color
   final Color color;
@@ -69,7 +69,7 @@ class TimePickerHandlerDecoration {
     this.color = Colors.black,
     this.shape = BoxShape.circle,
     this.shadow,
-    this.icon,
+    this.svg,
     this.radius = 8,
     this.border,
     this.handlerOutterRadius = 12,
@@ -78,7 +78,7 @@ class TimePickerHandlerDecoration {
     this.showHandlerOutter = false,
   })  : assert((showHandlerOutter && shadow != null) ? false : true,
             'shadows does not draw well when using the default HandlerOutter, try using border instead'),
-        assert((showHandlerOutter && icon != null) ? false : true,
+        assert((showHandlerOutter && svg != null) ? false : true,
             'handlerOutterRadius can not be use with icon'),
         assert(
             (!showHandlerOutter ||
@@ -172,17 +172,17 @@ class TimePickerHandlerDecoration {
     required Canvas canvas,
     required Offset center,
   }) {
-    if (this.icon == null) return;
+    if (this.svg == null) return;
 
-    var iconSize = this.icon!.size ?? 30.0;
+    var iconSize = this.svg!.size ?? 30.0;
 
     TextPainter textPainter = TextPainter(textDirection: TextDirection.rtl);
     textPainter.text = TextSpan(
-      text: String.fromCharCode(icon!.icon!.codePoint),
+      text: String.fromCharCode(svg!.icon!.codePoint),
       style: TextStyle(
-        color: icon!.color,
+        color: svg!.color,
         fontSize: iconSize,
-        fontFamily: icon!.icon!.fontFamily,
+        fontFamily: svg!.icon!.fontFamily,
       ),
     );
     textPainter.layout();
@@ -206,7 +206,7 @@ class TimePickerHandlerDecoration {
 
   TimePickerHandlerDecoration copyWith({
     BoxShape? shape,
-    Icon? icon,
+    dynamic svg,
     Color? color,
     BoxShadow? shadow,
     double? radius,
@@ -216,7 +216,7 @@ class TimePickerHandlerDecoration {
   }) {
     return TimePickerHandlerDecoration(
       shape: shape ?? this.shape,
-      icon: icon ?? this.icon,
+      svg: svg ?? this.svg,
       color: color ?? this.color,
       shadow: shadow ?? this.shadow,
       radius: radius ?? this.radius,
