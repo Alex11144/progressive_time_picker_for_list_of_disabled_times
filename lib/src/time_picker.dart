@@ -144,7 +144,7 @@ class _TimePickerState extends State<TimePicker> {
     var startBox = TimePickerHandlerDecoration(
       color: Colors.lightBlue[900]!.withOpacity(0.6),
       shape: BoxShape.circle,
-      svg: Icon(
+      icon: Icon(
         Icons.filter_tilt_shift,
         size: 30,
         color: Colors.lightBlue[700],
@@ -155,7 +155,7 @@ class _TimePickerState extends State<TimePicker> {
     var endBox = TimePickerHandlerDecoration(
       color: Colors.lightBlue[900]!.withOpacity(0.8),
       shape: BoxShape.circle,
-      svg: Icon(
+      icon: Icon(
         Icons.filter_tilt_shift,
         size: 40,
         color: Colors.lightBlue[700],

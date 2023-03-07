@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Color(0xFF141925),
                 shape: BoxShape.circle,
                 radius: 12.0,
-                svg: Icon(
+                icon: Icon(
                   Icons.power_settings_new_outlined,
                   size: 20.0,
                   color: Color(0xFF3CDAF7),
@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Color(0xFF141925),
                 shape: BoxShape.circle,
                 radius: 12.0,
-                svg: Icon(
+                icon: Icon(
                   Icons.notifications_active_outlined,
                   size: 20.0,
                   color: Color(0xFF3CDAF7),
