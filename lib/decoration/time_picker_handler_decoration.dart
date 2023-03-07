@@ -178,7 +178,6 @@ class TimePickerHandlerDecoration {
 
     TextPainter textPainter = TextPainter(textDirection: TextDirection.rtl);
     textPainter.text = TextSpan(
-      text: String.fromCharCode(svg!.icon!.codePoint),
       style: TextStyle(
         color: svg!.color,
         fontSize: 3,
