@@ -179,9 +179,9 @@ class TimePickerHandlerDecoration {
     TextPainter textPainter = TextPainter(textDirection: TextDirection.rtl);
     textPainter.text = TextSpan(
       style: TextStyle(
-        color: svg!.color,
+        // color: svg!.color,
         fontSize: 3,
-        fontFamily: svg!.icon!.fontFamily,
+        // fontFamily: svg!.icon!.fontFamily,
       ),
     );
     textPainter.layout();
