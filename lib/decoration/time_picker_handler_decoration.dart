@@ -174,14 +174,14 @@ class TimePickerHandlerDecoration {
   }) {
     if (this.svg == null) return;
 
-    var iconSize = this.svg!.size ?? 30.0;
+    var iconSize = this.svg!.height ?? 24.0;
 
     TextPainter textPainter = TextPainter(textDirection: TextDirection.rtl);
     textPainter.text = TextSpan(
       text: String.fromCharCode(svg!.icon!.codePoint),
       style: TextStyle(
         color: svg!.color,
-        fontSize: iconSize,
+        fontSize: 3,
         fontFamily: svg!.icon!.fontFamily,
       ),
     );
