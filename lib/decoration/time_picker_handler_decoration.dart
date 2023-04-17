@@ -14,7 +14,7 @@ class TimePickerHandlerDecoration {
   /// Icon(Icons.filter_tilt_shift, size: iconSize, color: Colors.teal[700]);
   /// ```
   /// {@end-tool}
-  final Icon? icon;
+  final Text? icon;
 
   /// handler default color
   final Color color;
