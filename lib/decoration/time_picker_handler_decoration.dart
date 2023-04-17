@@ -172,17 +172,17 @@ class TimePickerHandlerDecoration {
     required Canvas canvas,
     required Offset center,
   }) {
-    if (this.icon == null) return;
+    // if (this.icon == null) return;
 
-    var iconSize = this.icon!.size ?? 30.0;
+    // var iconSize = this.icon!.size ?? 30.0;
 
     TextPainter textPainter = TextPainter(textDirection: TextDirection.rtl);
     textPainter.text = TextSpan(
-      text: String.fromCharCode(icon!.icon!.codePoint),
+      // text: String.fromCharCode(icon!.icon!.codePoint),
       style: TextStyle(
-        color: icon!.color,
-        fontSize: iconSize,
-        fontFamily: icon!.icon!.fontFamily,
+        color: Colors.black,
+        fontSize: 30,
+        // fontFamily: icon!.icon!.fontFamily,
       ),
     );
     textPainter.layout();
